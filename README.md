@@ -9,8 +9,15 @@ e.g., push, pop, and top, like [std::stack](https://cplusplus.com/reference/stac
 to support other data types, e.g., `float`, `double` and so on.
 
 ## Function Pointers
-
-
+* `void (*init)(struct Stack *s)`: Initialize the stack.
+* `void (*push)(struct Stack *s, void *element)`: Push an element into the stack.
+* `void* (*pop)(struct Stack *s)`: Pop an element from the stack.
+* `void* (*top)(struct Stack *s)`: Get the top element of the stack.
+* `bool (*isFull)(struct Stack *s)`: Check if the stack is full.
+* `bool (*isEmpty)(struct Stack *s)`: Check if the stack is empty.
+* `int (*size)(struct Stack *s)`: Get the current size of the stack.
+* `void (*free)(struct Stack *s)`: Free the memory occupied by the stack.
+* `void (*print)(struct Stack *s)`: Print the information of the stack.
 
 ## Simple Usage
 1. Compile the source code to object files.
@@ -57,8 +64,8 @@ to support other data types, e.g., `float`, `double` and so on.
     ```
 
 ## Key Note
-* The parameter passed to `createStack` is the type of the stack, which can be `INT`, `CHAR`, or `STRING`. You can also see the supported data types in the `struct StackTyp`e of `stack/stack.h`.
-* When using `push`, you need to pass the address of the data to be pushed into the stack, because the function pointer of `push` is defined as `void push(struct Stack *stack, void *element)`.
+* The parameter passed to `createStack` is the type of the stack, which can be `INT`, `CHAR`, or `STRING`. You can also see the supported data types in the `struct StackTyp`e of [`stack/stack.h`](https://github.com/JeepWay/stack-C-polymorphism/blob/main/stack/stack.h).
+* When using `push`, you need to pass the memory address of the data to be pushed into the stack, because the function pointer of `push` is defined as `void (*push)(struct Stack *s, void *element)`.
 * When using `pop` and `top`, you need to cast the return value to the correct data type, just like using `malloc()` in C, to avoid the warning of `incompatible pointer type`, beacuse the return value is a `void *` pointer.
 * When stack is empty during `pop` and `top`: 
     * For `INT` type, the return value of `pop` and `top` are `NULL`.
