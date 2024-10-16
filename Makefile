@@ -26,6 +26,6 @@ test_stack_int: test/test_stack_int.o stack/stack_int.o
 clean:
 	@echo "clean project"
 	find . -name "*.o" -type f -delete
-	find . -name "*.exe" -type f -delete
+	find . -type f -executable -not -name "*.*" -delete
 # del /S *.o  
 # del /S *.exe
